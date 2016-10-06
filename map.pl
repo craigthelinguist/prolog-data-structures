@@ -34,11 +34,6 @@ map_insert2(Key, Val, [X | Xs], [pair(Key, Val), X | Xs]).
 % Head of list has the key-value pair.
 map_has(Key, Val, [pair(Key, Val) | _]).
 
-% Head of list doesn't have key-value pair; recurse on rest of list.
-map_has(Key, Val, [pair(Key2, _) | Rest]) :-
-    Key \= Key2,
-    map_has(Key, Val, Rest).
-
 % Below predicate makes it bi-directional.
 % Recurse on rest of list regardless of head.
 map_has(Key, Val, [ _ | Rest]) :-
